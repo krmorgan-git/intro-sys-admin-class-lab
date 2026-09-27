@@ -1,10 +1,11 @@
 {% extends 'base.html' %}
 {% block content %}
-<div style="display: flex; justify-content: space-between; align-items: center;">
-    <h2>Active Infrastructure Inventory Dashboard</h2>
-    <div>
-        <span>User Identity: <strong>{{ session['username'] }}</strong> ({{ session['role'] }})</span> | 
-        <a href="{{ url_for('logout') }}" class="btn logout-btn">Terminate Session</a>
+<!-- Optimized Flex Header Layout -->
+<div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #ddd; padding-bottom: 15px; margin-bottom: 20px;">
+    <h2 style="margin: 0; padding-right: 20px;">Active Infrastructure Inventory Dashboard</h2>
+    <div style="display: flex; align-items: center; gap: 15px; white-space: nowrap; flex-shrink: 0;">
+        <span>User Identity: <strong>{{ session['username'] }}</strong> ({{ session['role'] }})</span>
+        <a href="{{ url_for('logout') }}" class="btn logout-btn" style="display: inline-block; vertical-align: middle; margin: 0;">Terminate Session</a>
     </div>
 </div>
 
