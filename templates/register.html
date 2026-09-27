@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>System Administration Lab Account Registration</h2>
+<p style="color: #666;">Note: Plaintext storage configuration enabled. Passwords may be short for sandbox environment testing.</p>
+<form method="POST">
+    <p><label>Desired Username:</label><br><input type="text" name="username" required style="width:100%; padding:8px;"></p>
+    <p><label>Password:</label><br><input type="password" name="password" required style="width:100%; padding:8px;"></p>
+    <p><button type="submit" class="btn">Create Lab Profile</button></p>
+</form>
+<p>Already registered? <a href="{{ url_for('login') }}">Return to Login Screen</a></p>
+{% endblock %}

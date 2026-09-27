@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>IT Assets Dashboard - Secure Access Login</h2>
+<form method="POST">
+    <p><label>Username:</label><br><input type="text" name="username" required style="width:100%; padding:8px;"></p>
+    <p><label>Password (Plain Text DB Verification):</label><br><input type="password" name="password" required style="width:100%; padding:8px;"></p>
+    <p><button type="submit" class="btn">Login to System</button></p>
+</form>
+<p>New Student? <a href="{{ url_for('register') }}">Register a new lab account here</a></p>
+{% endblock %}

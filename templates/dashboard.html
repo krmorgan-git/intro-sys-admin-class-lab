@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block content %}
+<div style="display: flex; justify-content: space-between; align-items: center;">
+    <h2>Active Infrastructure Inventory Dashboard</h2>
+    <div>
+        <span>User Identity: <strong>{{ session['username'] }}</strong> ({{ session['role'] }})</span> | 
+        <a href="{{ url_for('logout') }}" class="btn logout-btn">Terminate Session</a>
+    </div>
+</div>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Hostname</th>
+            <th>IP Address</th>
+            <th>Operating System</th>
+            <th>Node Status</th>
+            <th>Physical Location</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for asset in assets %}
+        <tr>
+            <td>{{ asset['id'] }}</td>
+            <td><code>{{ asset['hostname'] }}</code></td>
+            <td>{{ asset['ip_address'] }}</td>
+            <td>{{ asset['os_type'] }}</td>
+            <td>
+                {% if asset['status'] == 'Online' %}
+                    <strong style="color: green;">{{ asset['status'] }}</strong>
+                {% else %}
+                    <strong style="color: red;">{{ asset['status'] }}</strong>
+                {% endif %}
+            </td>
+
+            <td>{{ asset['location'] }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
