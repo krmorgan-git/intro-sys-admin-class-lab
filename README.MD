@@ -150,3 +150,27 @@ sqlite3 /var/www/sysadmin-flask-lab/instance/sysadmin_lab.db "SELECT * FROM user
 ### Analysis Deliverables:
 1. Identify the structural hazard visible inside the terminal output.
 2. In your lab report, explain the security implications of this configuration and describe what algorithmic mechanism should be implemented in a subsequent development cycle to fix it.
+
+---
+
+## Step 5: Run the Automated Deployment Tester
+
+Once you have applied the permission fixes, execute the automated test script to verify that your systemd service, Gunicorn binding, Nginx reverse proxy, and database write privileges are correctly configured.
+
+1. Ensure you are in the root project directory:
+   ```bash
+   cd /var/www/sysadmin-flask-lab
+   ```
+
+2. Make the script executable:
+   ```bash
+   chmod +x test_assignment.sh
+   ```
+
+3. Run the validation engine with root privileges:
+   ```bash
+   sudo ./test_assignment.sh
+   ```
+
+### Grading Criteria
+The script will output green **[PASS]** or red **[FAIL]** flags for each component. To achieve full credit for this lab, your final score summary must display: `LAB COMPLETE: All tests passed successfully! (5/5)`. If any test fails, review the logs using `journalctl -u flasklab` or `nginx -t` to debug your setup.
